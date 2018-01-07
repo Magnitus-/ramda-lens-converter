@@ -1,5 +1,5 @@
 {
-  "name": "ramda-lens-properties",
+  "name": "ramda-lens-converter",
   "version": "0.1.0",
   "description": "Convert ramda lens into a set of class-like properties while remaining functional",
   "keywords": [
@@ -11,10 +11,10 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/Magnitus-/ramda-lens-properties"
+    "url": "http://github.com/Magnitus-/ramda-lens-converter"
   },
   "bugs": {
-    "url": "http://github.com/Magnitus-/ramda-lens-properties",
+    "url": "http://github.com/Magnitus-/ramda-lens-converter",
     "email": "eric_vallee@webificservices.com"
   },
   "licenses": [
