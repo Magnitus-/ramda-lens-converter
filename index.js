@@ -32,7 +32,9 @@ const keyToProperties = R.curry((lenses, key, format, invertedArguments) => {
     }
 });
 
-function lensToProperties(lens, format='camelCase', invertedArguments=false) {
+function lensToProperties(lens, options) {
+    const format = R.propOr('camelCase', 'format', options);
+    const invertedArguments = R.propOr(false, 'invertedArguments', options);
     return R.compose(
         R.mergeAll,
         R.map(keyToProperties(lens, R.__, format, invertedArguments)),

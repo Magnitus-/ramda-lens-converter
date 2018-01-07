@@ -106,7 +106,7 @@ module.exports = {
     },
     invertedArguments: (test) => {
         test.expect(9);
-        const props = lensToProperties(lens, 'camelCase', true);
+        const props = lensToProperties(lens, {'invertedArguments': true});
         const testVal = {
             'a': 1,
             'b': {
@@ -182,7 +182,7 @@ module.exports = {
     },
     subProperties: (test) => {
         test.expect(9);
-        const props = lensToProperties(lens, 'subProperties');
+        const props = lensToProperties(lens, {'format': 'subProperties'});
         const testVal = {
             'a': 1,
             'b': {
