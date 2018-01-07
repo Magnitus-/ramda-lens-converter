@@ -1,0 +1,41 @@
+{
+  "name": "ramda-lens-properties",
+  "version": "0.1.0",
+  "description": "Convert ramda lens into a set of class-like properties while remaining functional",
+  "keywords": [
+    "ramda",
+    "lens",
+    "model"
+  ],
+  "author": "Eric Vallee <eric_vallee@webificservices.com>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/Magnitus-/ramda-lens-properties"
+  },
+  "bugs": {
+    "url": "http://github.com/Magnitus-/ramda-lens-properties",
+    "email": "eric_vallee@webificservices.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT License",
+      "url": "http://mit-license.org/"
+    }
+  ],
+  "dependencies": {
+    "ramda": "^0.25.0"
+  },
+  "scripts": {
+    "test": "nodeunit tests"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.11.2"
+  },
+  "license": "MIT",
+  "files": [
+      "index.js",
+      "License.txt",
+      "README.md"
+  ]
+}
