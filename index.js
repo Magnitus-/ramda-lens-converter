@@ -4,28 +4,28 @@ const capitalize = (str) => {
      return str.charAt(0).toUpperCase() + str.substring(1)
 }
 
-const setProperty = R.curry((propKey, lensManip, lens, invertedArguments) => {
+const setProperty = R.curry((propKey, lensManip, lens, invertArguments) => {
    return R.ifElse(
-       () => (invertedArguments && lensManip !== R.view),
+       () => (invertArguments && lensManip !== R.view),
        R.assoc(propKey, R.flip(lensManip(lens))),
        R.assoc(propKey, lensManip(lens))
    )
 })
 
-const keyToProperties = R.curry((lenses, key, format, invertedArguments) => {
+const keyToProperties = R.curry((lenses, key, format, invertArguments) => {
     if(format === 'camelCase') {
         return R.compose(
-            setProperty('over' + capitalize(key), R.over, lenses[key], invertedArguments),
-            setProperty('get' + capitalize(key), R.view, lenses[key], invertedArguments),
-            setProperty('set' + capitalize(key), R.set, lenses[key], invertedArguments)
+            setProperty('over' + capitalize(key), R.over, lenses[key], invertArguments),
+            setProperty('get' + capitalize(key), R.view, lenses[key], invertArguments),
+            setProperty('set' + capitalize(key), R.set, lenses[key], invertArguments)
         )({})
     } else if(format === 'subProperties') {
         return R.assoc(
             key,
             R.compose(
-                setProperty('over', R.over, lenses[key], invertedArguments),
-                setProperty('get', R.view, lenses[key], invertedArguments),
-                setProperty('set', R.set, lenses[key], invertedArguments)
+                setProperty('over', R.over, lenses[key], invertArguments),
+                setProperty('get', R.view, lenses[key], invertArguments),
+                setProperty('set', R.set, lenses[key], invertArguments)
             )({}),
             {}
         )
@@ -34,10 +34,10 @@ const keyToProperties = R.curry((lenses, key, format, invertedArguments) => {
 
 function lensToProperties(lens, options) {
     const format = R.propOr('camelCase', 'format', options);
-    const invertedArguments = R.propOr(false, 'invertedArguments', options);
+    const invertArguments = R.propOr(false, 'invertArguments', options);
     return R.compose(
         R.mergeAll,
-        R.map(keyToProperties(lens, R.__, format, invertedArguments)),
+        R.map(keyToProperties(lens, R.__, format, invertArguments)),
         R.keys
     )(lens);
 }

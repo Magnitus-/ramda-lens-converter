@@ -29,7 +29,7 @@ The arguments are:
 - **lenses**: An object of ramda lenses meant to operate on a common data structure.
 - **options**: An object of properties that affects the return properties object. It has the following properties:
   * **format**: A property that affects the format of the generated object. For each **LensName** property of the **lenses** argument, **camelCase** will generate 3 function properties called **getLensName**, **setLensName** and **overLensName**. Conversely, for each **LensName** property of the **lenses** argument, **subProperties** will generate a corresponding object property of **LensName** containing 3 function properties: **get**, **set** and **over**.
-  * **invertedArguments**: The generate **set** and **over** functions take 2 arguments: a structure to operate on and either a value to assign (**set**) or a function to operate on the lens value (**over**). If **invertedArguments** is set to **false**, the structure to operate on will be the second argument (which will usually reduce the need to use the ramda placeholder). If **invertedArguments** is set to **true**, the structure to operate on will be the first argument (which may be more intuitive to OO afficionados as it is closer in terms of ordering to the dot notation of class instance members).
+  * **invertArguments**: The generate **set** and **over** functions take 2 arguments: a structure to operate on and either a value to assign (**set**) or a function to operate on the lens value (**over**). If **invertArguments** is set to **false**, the structure to operate on will be the second argument (which will usually reduce the need to use the ramda placeholder). If **invertArguments** is set to **true**, the structure to operate on will be the first argument (which may be more intuitive to OO afficionados as it is closer in terms of ordering to the dot notation of class instance members).
 
 ### Example
 
@@ -116,7 +116,7 @@ console.log(
 
 ```
 //Variant 3: Lets also invert the arguments of set/over to make it more intuitive to some users
-const square = lensToProperties(lenses, {'format': 'subProperties', 'invertedArguments': true});
+const square = lensToProperties(lenses, {'format': 'subProperties', 'invertArguments': true});
 
 const squareInstance = square.side.set({}, 4);
 

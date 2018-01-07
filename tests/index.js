@@ -104,9 +104,9 @@ module.exports = {
 
         test.done();
     },
-    invertedArguments: (test) => {
+    invertArguments: (test) => {
         test.expect(9);
-        const props = lensToProperties(lens, {'invertedArguments': true});
+        const props = lensToProperties(lens, {'invertArguments': true});
         const testVal = {
             'a': 1,
             'b': {
