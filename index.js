@@ -29,17 +29,6 @@ const keyToProperties = R.curry((lenses, key, format, invertedArguments) => {
             )({}),
             {}
         )
-        /*return R.converge(
-            R.assoc(key),
-            [
-                R.compose(
-                    setProperty('over', R.over, lenses[key], invertedArguments),
-                    setProperty('get', R.view, lenses[key], invertedArguments),
-                    setProperty('set', R.set, lenses[key], invertedArguments)
-                ),
-                R.identity
-            ]
-        )({});*/
     }
 });
 
